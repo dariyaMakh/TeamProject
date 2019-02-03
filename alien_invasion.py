@@ -17,7 +17,8 @@ def run_game():
 
 # Main loop
     while True:
-        gf.check_events()
+        gf.check_events(ship)
+        gf.update_screen(ai_settings, screen, ship)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
