@@ -2,7 +2,7 @@ import sys
 import pygame
 from settings import Settings
 from ship import Ship
-
+import game_functions as gf
 
 def run_game():
     # game initialization and screen creation + added settings initialization
@@ -17,6 +17,7 @@ def run_game():
 
 # Main loop
     while True:
+        gf.check_events()
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
