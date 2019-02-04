@@ -3,6 +3,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 import game_functions as gf
+from pygame.sprite import Group
 
 
 def run_game():
@@ -15,12 +16,15 @@ def run_game():
     # Ship creation
     ship = Ship(ai_settings, screen)
 
+    # Group for storing bullets
+    bullets = Group()
 
 # Main loop
     while True:
-        gf.check_events(ship)
+        gf.check_events(ai_settings,screen, ship, bullets)
         ship.update()
-        gf.update_screen(ai_settings, screen, ship)
+        bullets.update()
+        gf.update_screen(ai_settings, screen, ship, bullets)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
