@@ -2,6 +2,7 @@ import sys
 import pygame
 from settings import Settings
 from ship import Ship
+from alien import Alien
 import game_functions as gf
 from pygame.sprite import Group
 
@@ -15,6 +16,7 @@ def run_game():
 
     # Ship creation
     ship = Ship(ai_settings, screen)
+    alien = Alien(ai_settings, screen)
 
     # Group for storing bullets
     bullets = Group()
@@ -25,7 +27,7 @@ def run_game():
         ship.update()
         bullets.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, alien, bullets)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
