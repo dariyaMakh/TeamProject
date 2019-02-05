@@ -20,6 +20,10 @@ def run_game():
 
     # Group for storing bullets
     bullets = Group()
+    aliens = Group()
+
+    # Creating fleet of aliens
+    gf.create_fleet(ai_settings, screen, aliens)
 
 # Main loop
     while True:
@@ -27,7 +31,7 @@ def run_game():
         ship.update()
         bullets.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
