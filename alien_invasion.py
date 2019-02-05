@@ -24,6 +24,11 @@ def run_game():
         gf.check_events(ai_settings,screen, ship, bullets)
         ship.update()
         bullets.update()
+        # delete bullets out of border
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+        print(len(bullets))
         gf.update_screen(ai_settings, screen, ship, bullets)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
