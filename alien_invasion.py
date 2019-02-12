@@ -31,7 +31,7 @@ def run_game():
         ship.update()
         bullets.update()
         gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
-        gf.update_aliens(ai_settings, aliens)
+        gf.update_aliens(ai_settings, ship, aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
         # Keyboard and mouse events tracking
         for event in pygame.event.get():
